@@ -6,8 +6,12 @@ class Article:
         
 class Author:
     def __init__(self, name):
-        self.name = name
+        self._name = name
+        # if not isinstance(name,str) or len(name) == 0:
+        #     raise Exception ("Name must be a string, with more than 0 characters")
 
+        
+        
     def articles(self):
         pass
 
