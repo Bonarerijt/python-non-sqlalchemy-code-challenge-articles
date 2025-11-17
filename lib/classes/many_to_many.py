@@ -3,15 +3,16 @@ class Article:
         self.author = author
         self.magazine = magazine
         self.title = title
-        
+
+
 class Author:
     def __init__(self, name):
         self._name = name
-        # if not isinstance(name,str) or len(name) == 0:
-        #     raise Exception ("Name must be a string, with more than 0 characters")
+        if not isinstance(name, str):
+            raise TypeError("Name must be a string")
+        if len(name) == 0:
+            raise ValueError("Name cannot be empty")
 
-        
-        
     def articles(self):
         pass
 
@@ -23,6 +24,7 @@ class Author:
 
     def topic_areas(self):
         pass
+
 
 class Magazine:
     def __init__(self, name, category):
