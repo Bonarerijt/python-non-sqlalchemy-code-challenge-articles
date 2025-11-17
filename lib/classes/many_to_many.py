@@ -14,23 +14,38 @@ class Author:
             raise ValueError("Name cannot be empty")
         self._name = name
 
-    def articles(self):
+    @property
+    def name (self):
+            return self._name
+    
+    @name.setter
+    def name(self, value):
         pass
+
+    def articles(self):
+        return [article for article in Article.all if article.author == self]
+
 
     def magazines(self):
-        pass
+        return list(set([article.magazine for article in self.articles()]))
+
 
     def add_article(self, magazine, title):
-        pass
+        return Article(self, magazine, title)
 
     def topic_areas(self):
-        pass
+        areas = list(set([article.magazine.category for article in self.articles()]))
+        return areas if areas else None
 
 
 class Magazine:
     def __init__(self, name, category):
         self.name = name
         self.category = category
+
+    @property
+    def name (self):
+        return self.name
 
     def articles(self):
         pass
