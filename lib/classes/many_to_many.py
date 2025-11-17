@@ -7,11 +7,12 @@ class Article:
 
 class Author:
     def __init__(self, name):
-        self._name = name
+        
         if not isinstance(name, str):
             raise TypeError("Name must be a string")
         if len(name) == 0:
             raise ValueError("Name cannot be empty")
+        self._name = name
 
     def articles(self):
         pass
